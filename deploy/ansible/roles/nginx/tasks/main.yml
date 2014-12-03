@@ -1,0 +1,19 @@
+---
+- name: configure nginx ppa
+  apt_repository: repo=ppa:nginx/stable state=present
+
+- name: install nginx
+  apt: pkg=nginx state=present
+
+- name: Delete default site
+  file: path=/etc/nginx/sites-enabled/default state=absent
+
+- name: copy macaroni server config
+  template: src=macaroni.j2 dest=/etc/nginx/sites-available/macaroni
+
+- name: symlink config to sites-enabled
+  file: state=link src=/etc/nginx/sites-available/macaroni dest=/etc/nginx/sites-enabled/macaroni
+
+- name: restart nginx
+  service: name=nginx state=restarted
+

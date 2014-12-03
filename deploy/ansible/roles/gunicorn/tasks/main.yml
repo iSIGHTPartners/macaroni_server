@@ -1,0 +1,9 @@
+- name: install gunicorn
+  pip: name=gunicorn
+
+- name: copy template gunicorn upstart config
+  template: src=macaroni.conf.j2 dest=/etc/init/macaroni.conf
+
+- name: start gunicorn via upstart
+  service: name=macaroni state=restarted
+

@@ -1,0 +1,90 @@
+from logging import DEBUG, INFO, WARNING, ERROR
+from os import urandom
+
+class ConfigClass(object):
+
+    #--- User Management settings ---#
+
+    admin_email = '{{ admin_user }}'
+    admin_password = '{{ admin_pw }}'
+    admin_role = 'admin'
+
+    roles = [admin_role, 'write', 'read_only']
+    default_role = 'read_only'
+
+    #--- VTMIS settings ---#
+
+    vtmis_api_keys = [
+        {% for key in vt_api_keys %}
+        '{{ key }}',
+        {% endfor %}
+    ]
+
+    vtmis_feed_url = 'https://www.virustotal.com/intelligence/hunting/notifications-feed/'
+
+    #--- API settings ---#
+    
+    debug_mode = False
+    debug_host = "172.28.128.50"
+    debug_port = 5000
+
+    apikey_cache_ttl                = 3600
+
+    #--- Logging settings ---#
+    
+    tag_indexer_logfile = "/var/log/macaroni/tag_indexer.log"
+    tag_indexer_log_level = INFO
+    flask_logfile = "/var/log/macaroni/flask.log"
+    flask_log_level = INFO
+    
+    #--- Elasticsearch settings ---#
+
+    es_nodes = [{'host': '127.0.0.1', 'port': 9200}]
+
+    # the name of the index that stores the yara notifications
+    yara_index  = 'files'
+    yara_doctype = 'file'
+
+    # the primary key for the yara_doctype (only md5 supported for now)
+    hash_type = 'md5'
+
+    #--- Flask settings ---#
+    
+    SECRET_KEY = urandom(24)
+    SQLALCHEMY_DATABASE_URI = 'sqlite:///macaroni.sqlite'
+    CSRF_ENABLED = True
+
+    #--- Flask-Limiter settings ---#
+    
+    xrate_limit_headers_enabled = False
+    redis_host = 'localhost'
+    redis_port = 6379
+    redis_cache_uri = 'redis://{host}:{port}'.format(host=redis_host, port=redis_port)
+
+    #--- Flask-User settings ---#
+    
+    USER_APP_NAME        = "Macaroni"                # Used by email templates
+    USER_ENABLE_CHANGE_PASSWORD    = False      # Allow users to change their password
+
+    USER_ENABLE_CHANGE_USERNAME    = False      # Allow users to change their username
+                                               # Requires USER_ENABLE_USERNAME=True
+
+    USER_ENABLE_CONFIRM_EMAIL      = False      # Force users to confirm their email
+                                               # Requires USER_ENABLE_EMAIL=True
+
+    USER_ENABLE_FORGOT_PASSWORD    = False      # Allow users to reset their passwords
+                                               # Requires USER_ENABLE_EMAIL=True
+
+    USER_ENABLE_LOGIN_WITHOUT_CONFIRM = False  # Allow users to login without a
+                                               # confirmed email address
+                                               # Protect views using @confirm_email_required
+
+    USER_ENABLE_EMAIL              = True      # Register with Email
+                                               # Requires USER_ENABLE_REGISTRATION=True
+
+    USER_ENABLE_MULTIPLE_EMAILS    = False     # Users may register multiple emails
+                                               # Requires USER_ENABLE_EMAIL=True
+
+    USER_ENABLE_REGISTRATION       = False      # Allow new users to register
+
+

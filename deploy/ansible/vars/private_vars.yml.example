@@ -1,0 +1,8 @@
+---
+# private variables, keep these out of source control !
+    admin_user: admin@example.org
+    admin_pw: Password1
+
+    vt_api_keys:
+        - apikey1
+        - apikey2

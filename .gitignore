@@ -1,0 +1,8 @@
+*.py[cod]
+*.log
+*.key
+*.crt
+*.sqlite
+config.py
+.vagrant
+private_vars.yml

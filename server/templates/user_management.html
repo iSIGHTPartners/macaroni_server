@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title"><span class="glyphicon glyphicon-user"></span> Users</h3>
+    </div>
+    <div class="panel-body">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>Email</th>
+            <th>Active?</th>
+            <th>API Key</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for user in users %}
+          <tr>
+            <th>{{ user.username }}</th>
+            <th>
+              {% if user.is_active() %} 
+              <span style="color: green">Active</span>
+              {% else %}
+              <span style="color: red">Inactive</span>
+              {% endif %}
+            </th>
+            <th>{{ user.apikey }}</th>
+            <th>
+              <a class="remove_user" data-email="{{ user.username }}" href='#' title="Delete User">
+                <span class="glyphicon glyphicon-remove"></span>
+              </a>
+              <a class="toggle_active" data-email="{{ user.username }}" href='#' title="Toggle Active">
+                <span class="glyphicon glyphicon-pause"></span>
+              </a>
+            </th>
+          </tr>
+          {% endfor %}
+          <tr>
+            <th><input class=".input-sm" type="text" class="form-control" id="input_email" placeholder="Name"></th>
+            <th></th>
+            <th>Auto-Generated</th>
+            <th>
+              <a id='add_user' href='#'><span class="glyphicon glyphicon-plus"></span></a>
+            </th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>    
+</div> <!-- /container -->
+
+{% endblock %}

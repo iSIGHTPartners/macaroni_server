@@ -1,0 +1,26 @@
+---
+- name: create macaroni user
+  user: name=macaroni system=yes state=present
+
+#- name: get source
+#  git: repo=https://nms84@bitbucket.org/nms84/macaroni_server.git dest=/home/macaroni/macaroni_server
+
+- name: install app python library requirements
+  pip: requirements=/home/macaroni/macaroni_server/requirements.pip
+
+- name: copy flask app config w/ private_vars
+  template: src=config.py.j2 dest=/home/macaroni/macaroni_server/server/config.py
+
+- name: run app setup script
+  command: /usr/bin/python initial_app_setup.py
+  args:
+    chdir: /home/macaroni/macaroni_server/server/
+
+- name: chown/chgrp macaroni user database to macaroni user 
+  file: path=/home/macaroni/macaroni_server/ owner=macaroni group=macaroni state=directory recurse=yes
+
+- name: create macaroni log directory
+  file: path=/var/log/macaroni owner=macaroni group=macaroni mode=0755 state=directory
+
+- name: create tag_indexer.py cron job
+  cron: name="tag_indexer" minute="*/5" state=present user=macaroni job="/usr/bin/python /home/macaroni/macaroni_server/collector/tag_indexer.py"

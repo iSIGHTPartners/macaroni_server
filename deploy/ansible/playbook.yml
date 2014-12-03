@@ -1,0 +1,15 @@
+---
+- hosts: all
+  sudo: true
+  vars_files:
+    - vars/common.yml
+    - vars/private_vars.yml
+  roles:
+    - init
+    - ansible-java
+    - ansible-elasticsearch
+    - ansible-redis
+    - ansible-openssl
+    - app
+    - gunicorn
+    - nginx

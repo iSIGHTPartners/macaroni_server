@@ -1,0 +1,5 @@
+redis
+flask
+flask_limiter
+flask_user
+elasticsearch
