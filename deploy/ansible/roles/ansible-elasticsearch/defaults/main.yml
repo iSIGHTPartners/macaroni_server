@@ -51,18 +51,18 @@ elasticsearch_discovery_zen_ping_timeout: ~            # 3s
 elasticsearch_discovery_zen_ping_multicast_enabled: false  # false
 elasticsearch_discovery_zen_ping_unicast_hosts: ~      # "[\"host1\", \"host2:port\"]"
 
-elasticsearch_index_search_slowlog_threshold_query_warn: ~     # 10s
-elasticsearch_index_search_slowlog_threshold_query_info: ~     # 5s
-elasticsearch_index_search_slowlog_threshold_query_debug: ~    # 2s
-elasticsearch_index_search_slowlog_threshold_query_trace: ~    # 500ms
-elasticsearch_index_search_slowlog_threshold_fetch_warn: ~     # 1s
-elasticsearch_index_search_slowlog_threshold_fetch_info: ~     # 800ms
-elasticsearch_index_search_slowlog_threshold_fetch_debug: ~    # 500ms
-elasticsearch_index_search_slowlog_threshold_fetch_trace: ~    # 200ms
-elasticsearch_index_indexing_slowlog_threshold_index_warn: ~   # 10s
-elasticsearch_index_indexing_slowlog_threshold_index_info: ~   # 5s
-elasticsearch_index_indexing_slowlog_threshold_index_debug: ~  # 2s
-elasticsearch_index_indexing_slowlog_threshold_index_trace: ~  # 500ms
+elasticsearch_index_search_slowlog_threshold_query_warn: 10s
+elasticsearch_index_search_slowlog_threshold_query_info: 5s
+elasticsearch_index_search_slowlog_threshold_query_debug: 2s
+elasticsearch_index_search_slowlog_threshold_query_trace: 500ms
+elasticsearch_index_search_slowlog_threshold_fetch_warn: 1s
+elasticsearch_index_search_slowlog_threshold_fetch_info: 800ms
+elasticsearch_index_search_slowlog_threshold_fetch_debug: 500ms
+elasticsearch_index_search_slowlog_threshold_fetch_trace: 200ms
+elasticsearch_index_indexing_slowlog_threshold_index_warn: 10s
+elasticsearch_index_indexing_slowlog_threshold_index_info: 5s
+elasticsearch_index_indexing_slowlog_threshold_index_debug: 2s
+elasticsearch_index_indexing_slowlog_threshold_index_trace: 500ms
 
 monitor_jvm_gc_young_warn: ~   # 1000ms
 monitor_jvm_gc_young_info: ~   # 700ms

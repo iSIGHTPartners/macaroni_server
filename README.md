@@ -1,6 +1,8 @@
 Macaroni REST Server
 ==========================
 
+Macaroni Server is the back-end component that drives [Macaroni Extension](https://github.com/iSIGHTPartners/macaroni_extension). 
+
 Installation
 ---------------------
 
@@ -80,6 +82,7 @@ Vagrant makes development easy by syncing the git working copy (sans .git folder
     vagrant rsync-auto
 
 'rsync-auto' will constantly be checking for changes, whereas 'rsync' will only run once. 
+
 
 Contact
 ---------------------

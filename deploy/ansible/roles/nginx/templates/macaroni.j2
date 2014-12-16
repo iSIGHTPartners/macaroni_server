@@ -9,6 +9,7 @@ server {
 	ssl on;
 	ssl_certificate /etc/ssl/certs/macaroni.crt;
 	ssl_certificate_key /etc/ssl/private/macaroni.key;
+        ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
 	 
 	server_name 172.28.128.50;
 	access_log /var/log/nginx/access.log;

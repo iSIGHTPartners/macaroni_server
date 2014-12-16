@@ -1,8 +1,4 @@
 ---
-    php_ppa: php5-5.6
     doc_root: /vagrant
     sys_packages: []
-    dist: precise
-    php_packages: []
-    pecl_packages: []
     timezone: UTC

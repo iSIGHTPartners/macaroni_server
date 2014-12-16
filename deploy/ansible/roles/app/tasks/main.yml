@@ -2,9 +2,6 @@
 - name: create macaroni user
   user: name=macaroni system=yes state=present
 
-#- name: get source
-#  git: repo=https://nms84@bitbucket.org/nms84/macaroni_server.git dest=/home/macaroni/macaroni_server
-
 - name: install app python library requirements
   pip: requirements=/home/macaroni/macaroni_server/requirements.pip
 
