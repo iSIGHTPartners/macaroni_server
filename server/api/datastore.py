@@ -42,7 +42,7 @@ class ElasticsearchHelper(object):
         """
         body = {
             "sort": [{"first_seen":{"order": "desc"}}], 
-            "query": {"simple_query_string": {
+            "query": {"query_string": {
                 "default_field": "tags",
                 "default_operator": "AND",
                 "query": query,
@@ -50,7 +50,7 @@ class ElasticsearchHelper(object):
                   "tags",
                   "subject",
                   "ruleset_name"
-                ], 
+                ],
                 "allow_leading_wildcard": False
                 }
             }
@@ -60,12 +60,15 @@ class ElasticsearchHelper(object):
             results = []
             try:
                 search_result = self.es.search(index=ConfigClass.yara_index, doc_type=ConfigClass.yara_doctype, body=body, size=size, _source=False)
+                for doc in search_result.get("hits").get("hits"):
+                    results.append(doc.get("_id"))
             except TransportError as e:
                 logger.warning("Could not connect to Elasticsearch")
-            for doc in search_result.get("hits").get("hits"):
-                results.append(doc.get("_id"))
         else:
-            results = self.es.search(index=ConfigClass.yara_index, doc_type=ConfigClass.yara_doctype, body=body, size=size).get("hits")
+            try:
+                results = self.es.search(index=ConfigClass.yara_index, doc_type=ConfigClass.yara_doctype, body=body, size=size).get("hits")
+            except TransportError as e:
+                logger.warning("Could not connect to Elasticsearch")
 
         return results
 

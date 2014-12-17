@@ -40,21 +40,21 @@ def is_authorized(apikey):
         @param: apikey, str
         @return: authorized, boolean
     """
-    authorized = False
+    authorized = 0
     cached_answer = red.get(apikey)
     if cached_answer is None:
         #check database for apikey
         result = users_helper.get_user_by_apikey(apikey)
         if result and result.is_active():
-            answer = True
+            answer = 1
         else:
-            answer = False
+            answer = 0
 
         # store result in redis cache with TTL of N
         red.setex(apikey, ConfigClass.apikey_cache_ttl, answer)
         authorized = answer
     else:
-        authorized = cached_answer
+        authorized = int(cached_answer)
     return authorized
 
 def auth_required(func):
