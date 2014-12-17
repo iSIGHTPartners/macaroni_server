@@ -44,7 +44,7 @@ class ElasticsearchHelper(object):
             "sort": [{"first_seen":{"order": "desc"}}], 
             "query": {"simple_query_string": {
                 "default_field": "tags",
-                "default_operator", "AND",
+                "default_operator": "AND",
                 "query": query,
                 "fields": [
                   "tags",

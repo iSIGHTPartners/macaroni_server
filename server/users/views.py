@@ -4,6 +4,8 @@ import json
 from flask import Blueprint, render_template, request, make_response
 from flask_user import roles_required
 
+from os import urandom
+
 # internal imports
 from app_and_db import app, db_adapter, user_manager
 from config import ConfigClass
@@ -38,7 +40,7 @@ def adduser():
     username = request.form.get('email', None, type=str)
     role = ConfigClass.default_role
     if username:
-        result = users_helper.add_user(username, role, 'Password123')
+        result = users_helper.add_user(username, role, urandom(24))
         info['status'] = 'success'
         info['message'] = result
 
