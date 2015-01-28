@@ -10,6 +10,7 @@ from config import ConfigClass
 # modules aka blueprints
 from api.views import api_blueprint
 from users.views import users_blueprint
+from web.views import site_blueprint
 
 # Configure logging
 logger = logging.getLogger()
@@ -36,10 +37,13 @@ limiter = Limiter(app, headers_enabled=ConfigClass.xrate_limit_headers_enabled,
 # set rate limits for each module/blueprint
 limiter.limit("1/second;5/minute")(api_blueprint)
 limiter.limit("1/second;10/minute")(users_blueprint)
+limiter.limit("1/second;3/minute")(site_blueprint)
 
 # register blueprints
 app.register_blueprint(api_blueprint)
 app.register_blueprint(users_blueprint)
+app.register_blueprint(site_blueprint)
+
 
 if __name__ == '__main__':
 	if ConfigClass.debug_mode:

@@ -28,6 +28,11 @@ class ConfigClass(object):
 
     apikey_cache_ttl                = 3600
 
+    #--- Site settings ---#
+
+    site_domain = '172.28.128.50'
+    extension_download_url = 'https://{}/static/macaroni_extension_current.crx'.format(site_domain)    
+
     #--- Logging settings ---#
     
     tag_indexer_logfile = "/var/log/macaroni/tag_indexer.log"

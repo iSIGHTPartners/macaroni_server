@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Macaroni Extension</title>
+
+    <style>
+    /* Space out content a bit */
+        body {
+          padding-top: 20px;
+          padding-bottom: 20px;
+        }
+
+        /* Everything but the jumbotron gets side spacing for mobile first views */
+        .header,
+        .marketing,
+        .footer {
+          padding-right: 15px;
+          padding-left: 15px;
+        }
+
+        /* Custom page header */
+        .header {
+          border-bottom: 1px solid #e5e5e5;
+        }
+        /* Make the masthead heading the same height as the navigation */
+        .header h3 {
+          padding-bottom: 19px;
+          margin-top: 0;
+          margin-bottom: 0;
+          line-height: 40px;
+        }
+
+        /* Custom page footer */
+        .footer {
+          padding-top: 19px;
+          color: #777;
+          border-top: 1px solid #e5e5e5;
+        }
+
+        /* Customize container */
+        @media (min-width: 768px) {
+          .container {
+            max-width: 730px;
+          }
+        }
+        .container-narrow > hr {
+          margin: 30px 0;
+        }
+
+        /* Main marketing message and sign up button */
+        .jumbotron {
+          text-align: center;
+          border-bottom: 1px solid #e5e5e5;
+        }
+        .jumbotron .btn {
+          padding: 14px 24px;
+          font-size: 21px;
+        }
+
+        /* Supporting marketing content */
+        .marketing {
+          margin: 40px 0;
+        }
+        .marketing p + h4 {
+          margin-top: 28px;
+        }
+
+        /* Responsive: Portrait tablets and up */
+        @media screen and (min-width: 768px) {
+          /* Remove the padding we set earlier */
+          .header,
+          .marketing,
+          .footer {
+            padding-right: 0;
+            padding-left: 0;
+          }
+          /* Space out the masthead */
+          .header {
+            margin-bottom: 30px;
+          }
+          /* Remove the bottom border on the jumbotron for visual effect */
+          .jumbotron {
+            border-bottom: 0;
+          }
+        }
+    </style>
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <div class="container">
+      <div class="header">
+        <nav>
+          <ul class="nav nav-pills pull-right">
+            <li role="presentation"><a href="/">Home</a></li>
+            <li role="presentation" class="active"><a href="/install">Installation</a></li>
+            <li role="presentation"><a href="/about">About</a></li>
+          </ul>
+        </nav> 
+        <h3 class="text-muted">Macaroni Project</h3
+      </div>
+
+  <div class="page-header">
+    <h3>This page should help you get the Macaroni Extension installed.</h3>
+  </div>
+
+  <div class="bs-example" data-example-id="default-media">
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">Download Macaroni Extension</h4>
+        To begin, you'll need a <a href="/download"><b>copy of the extension plugin</b></a>. 
+      </div>
+      <div class="media-right">
+        <a href="/static/img/download.png">
+          <img class="media-object" src="/static/img/download.png" data-holder-rendered="true" style="width: 164px; height: 100px;">
+        </a>
+      </div>
+    </div>
+
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">Install Macaroni Extension</h4>
+        Point your browser to <b>chrome://extensions</b>. Then, drag the extension .crx file into your the Extensions tab window. 
+        <strong>Sometimes Chrome will give a warning here! Just try again and it should install.</strong>
+      </div>
+      <div class="media-right">
+        <a href="/static/img/extensions.png">
+          <img class="media-object" src="/static/img/extensions.png" data-holder-rendered="true" style="width: 164px; height: 148px;">
+        </a>
+      </div>
+    </div>
+
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">Configure</h4>
+        Once installed, you should see an Options link in the Macaroni extension sub-section (found in "chrome://extensions"). On that page, you'll need to insert your API key.
+      </div>
+      <div class="media-right">
+        <a href="/static/img/options.png">
+          <img class="media-object" src="/static/img/options.png" data-holder-rendered="true" style="width: 148px; height: 148px;">
+        </a>
+      </div>
+
+    </div>
+
+    <div class="media">
+      <div class="media-body">
+        <h4 class="media-heading">Test</h4>
+        Head over to <a href="https://virustotal.com" target="_blank"><b>VirusTotal</b></a> and try it out!
+      </div>
+      <div class="media-right">
+        <a href="/static/img/success.jpg">
+          <img class="media-object" src="/static/img/success.jpg" data-holder-rendered="true" style="width: 128px; height: 128px;">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+      <footer class="footer">
+        <p>&copy; Copyleft 2015</p>
+      </footer>
+
+    </div> <!-- /container -->
+
+
+
+  </body> 
+</html>
