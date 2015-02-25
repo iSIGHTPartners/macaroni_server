@@ -148,6 +148,8 @@ def main():
 
                     hit["tags"] = list(tags)
                     del hit["scans"]
+                    del hit["positives"]
+                    del hit["total"]
 
                     action = {
                           "_op_type": 'update',
