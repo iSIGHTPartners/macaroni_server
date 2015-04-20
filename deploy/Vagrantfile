@@ -16,6 +16,11 @@ def which(cmd)
     return nil
 end
 Vagrant.configure("2") do |config|
+    if Vagrant.has_plugin?("vagrant-proxyconf")
+        config.proxy.http = ""
+        config.proxy.https = ""    
+        config.proxy.no_proxy = "localhost,127.0.0.1"
+    end
 
     config.vm.provider :virtual_box do |v|
         # enable gui mode for troubleshooting problems
