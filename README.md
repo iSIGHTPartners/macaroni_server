@@ -28,6 +28,10 @@ Now that you have Vagrant and VirtualBox installed, you need to clone this repo 
         vt_api_keys:
            - apikey1
            - apikey2
+2.1 Set Proxy (optional)
+	vagrant plugin install vagrant-proxyconf
+	
+	Edit deploy/VagrantFile with http and http proxy
 
 3. Move your terminal to the deploy directory and run Vagrant
         
