@@ -29,6 +29,8 @@ Now that you have Vagrant and VirtualBox installed, you need to clone this repo 
            - apikey1
            - apikey2
            
+        http_proxy:
+           
 2.1 Set Proxy (optional):
 
 	vagrant plugin install vagrant-proxyconf
