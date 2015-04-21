@@ -35,7 +35,7 @@ Now that you have Vagrant and VirtualBox installed, you need to clone this repo 
 
 	vagrant plugin install vagrant-proxyconf
 	
-	Edit - deploy/VagrantFile with http and http proxy
+	Edit - deploy/VagrantFile with http and https proxy
 
 3. Move your terminal to the deploy directory and run Vagrant
         
