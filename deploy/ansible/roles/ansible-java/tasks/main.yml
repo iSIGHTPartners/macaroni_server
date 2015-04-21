@@ -34,4 +34,3 @@
     update_cache=yes
   with_items:
     - 'oracle-java{{ jdk_version }}-installer'
-    - 'ant'

@@ -39,7 +39,7 @@ elasticsearch_http_enabled: true
 elasticsearch_gateway_type: local
 elasticsearch_gateway_recover_after_nodes: 1
 elasticsearch_gateway_recover_after_time: 5m
-elasticsearch_gateway_expected_nodes: 2
+elasticsearch_gateway_expected_nodes: 1
 
 elasticsearch_cluster_routing_allocation_node_initial_primaries_recoveries: ~  # 4
 elasticsearch_cluster_routing_allocation_node_concurrent_recoveries: ~         # 2
