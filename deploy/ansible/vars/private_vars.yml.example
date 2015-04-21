@@ -6,3 +6,5 @@
     vt_api_keys:
         - apikey1
         - apikey2
+        
+    http_proxy:
