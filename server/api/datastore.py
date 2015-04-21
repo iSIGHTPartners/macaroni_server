@@ -56,8 +56,8 @@ class ElasticsearchHelper(object):
             }
         }
 
+        results = []
         if keys:
-            results = []
             try:
                 search_result = self.es.search(index=ConfigClass.yara_index, doc_type=ConfigClass.yara_doctype, body=body, size=size, _source=False)
                 for doc in search_result.get("hits").get("hits"):

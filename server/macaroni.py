@@ -35,9 +35,9 @@ limiter = Limiter(app, headers_enabled=ConfigClass.xrate_limit_headers_enabled,
     storage_uri=ConfigClass.redis_cache_uri)
 
 # set rate limits for each module/blueprint
-limiter.limit("1/second;5/minute")(api_blueprint)
+limiter.limit("1/second;10/minute")(api_blueprint)
 limiter.limit("1/second;10/minute")(users_blueprint)
-limiter.limit("1/second;3/minute")(site_blueprint)
+limiter.limit("1/second;10/minute")(site_blueprint)
 
 # register blueprints
 app.register_blueprint(api_blueprint)
